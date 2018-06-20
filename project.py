@@ -1,37 +1,40 @@
 from PIL import Image
 from pprint import pprint
-maze = Image.open('tiny.png')
+#import our State class
+from state import *
+#import our search class
+from search import *
+#import our pixel class
+from pixels import *
+
+#our pixel variables
+maze = Image.open( 'tiny.png' )
 width, height = maze.size
 #values of all pixels stored in arraylist one after another
-pixel_values = list(maze.getdata())
+pixel_values = list( maze.getdata() )
+#global vars
+length = len( pixel_values )
+pixels = list()
 
-x = 1
-string = ''
-length = len(pixel_values)
+#entry and exit variables set to -9999 for place holder
+entry = -99999
+exit  = -99999
 
-#iterate through pixel values array
-# for pixel_values in pixel_values:
-#     string += str(pixel_values)
-        #maybe set 10 in the next line to value of width so it prints the string by the width of the mace
-#     temp = x%10
-#     if temp==0 and x!=0:
-#         print string
-#         string = ''
-#     x+= 1
+#main method
+def main():
+    #get our maze from the image
+    build_maze( pixel_values, pixels )
+    #print_maze( pixels )
+
+    #find the entry on the first line
+    entry = find_door( pixels[0] )
+    #print( entry )
+
+    #find the exit on the last line
+    exit = find_door( pixels[-1] )
+    #print( exit )
 
 
-def breadthfirst():
 
-class state:
-    #for this init function x and y will not be used when we
-    def __init__(self,par, x, y):
-        #if no parent than it is the parent
-        if par = None:
-            self.x = x
-            self.y = y
-        #child node, copy previous state
-        else:
-            self.parent = par
-            self.x = par.x
-            self.y = par.y
-        
+#execute the main method
+main()
