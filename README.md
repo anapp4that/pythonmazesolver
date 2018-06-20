@@ -10,7 +10,3 @@ pixels.py contains our methods to parse our maze from our Image
 state.py holds the state class that lets us keep track of our current state, and where we came from
 
 search.py will hold our breadth first search function
-
-Opens a image and reads in a maze, creates an array of 1s and 0s to represent the maze
-
-Need to add logic to actually solve maze
