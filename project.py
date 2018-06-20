@@ -24,15 +24,21 @@ exit  = -99999
 def main():
     #get our maze from the image
     build_maze( pixel_values, pixels )
+    #print( "Maze" )
     #print_maze( pixels )
 
     #find the entry on the first line
     entry = find_door( pixels[0] )
-    #print( entry )
+    #print( "Maze entrence is at 0," + str(entry) )
 
     #find the exit on the last line
     exit = find_door( pixels[-1] )
-    #print( exit )
+    #print( "Maze exit is at " + str(len(pixels)) + "," + str(exit) )
+
+    #begin state
+    begin= state( None, 0, entry)
+    #print( "Begin state X: " + str(begin.x) + " Begin state Y: " + str(begin.y) )
+
 
 
 
